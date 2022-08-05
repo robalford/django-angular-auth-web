@@ -1,1 +1,15 @@
-<p>user-profile works!</p>
+<div *ngIf="userProfile">
+ <h1 class="profile-heading">User profile</h1>
+ <mat-card class="profile-card">
+   <mat-card-header>
+     <mat-card-title>{{ userProfile.first_name }} {{ userProfile.last_name }}</mat-card-title>
+     <mat-card-subtitle>{{ userProfile.username }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{ userProfile.profile_pic }}" alt="Profile photo">
+  <mat-card-content>
+     <p>
+       {{ userProfile.bio }}
+     </p>
+  </mat-card-content>
+ </mat-card>
+ </div>

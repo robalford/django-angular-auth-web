@@ -7,10 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { UserLoginComponent } from './user-login/user-login.component';
 import { ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TokenInterceptor } from "./token.interceptor";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -27,8 +29,11 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MatToolbarModule,
     MatInputModule,
     MatButtonModule,
+    MatCardModule,
   ],
-  providers: [],
+  providers: [
+     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
