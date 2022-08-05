@@ -1,1 +1,20 @@
-<p>user-login works!</p>
+<div class="login-form-container">
+  <h2>Log in</h2>
+  <form [formGroup]="logInForm" (ngSubmit)="onSubmit(logInForm.value)">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>User name</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password">
+      </mat-form-field>
+    </p>
+    <p>
+      <button mat-flat-button color="primary" type="submit" cdkFocusInitial>LOG IN</button>
+    </p>
+  </form>
+ </div>
